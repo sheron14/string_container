@@ -1,12 +1,9 @@
-import java.util.ArrayList;  
-  
+import java.util.ArrayList;  	
 class StringArray {  
     private ArrayList<String> strings;  
-  
     public StringArray() {  
         strings = new ArrayList<>();  
     }  
-  
     public void add(String element) {  
         int l = strings.size();
         if (strings.size() == 0){
@@ -16,7 +13,7 @@ class StringArray {
             strings.add(0, element);
         }
         else if (strings.getLast().length() < element.length()) {
-            strings.add(0, element);
+            strings.add(element);
         }
         else {
             for (int i = 0; i < l ; i++)
@@ -27,14 +24,12 @@ class StringArray {
             }
         }
     }  
-  
     public String getMaxLengthElement() {  
         if (strings.isEmpty()) {  
             return null;  
         }  
         return strings.get(strings.size() - 1);  
     }  
-  
     public double getAverageLength() {  
         if (strings.isEmpty()) {  
             return 0;  
@@ -47,26 +42,20 @@ class StringArray {
           
         return totalLength / strings.size();  
     }  
-  
     public void display() {  
         for (String str : strings) {  
             System.out.println(str);  
         }  
     }  
-  
     public static void main(String[] args) {  
-        StringArray stringArray = new StringArray();  
-          
+        StringArray stringArray = new StringArray();    
         stringArray.add("Hello");  
         stringArray.add("World");  
         stringArray.add("Java");  
         stringArray.add("Programming");  
-          
         System.out.println("Все строки:");  
-        stringArray.display();  
-          
+        stringArray.display();   
         System.out.println("Самый длинный эллемент: " + stringArray.getMaxLengthElement());  
-          
         System.out.println("Средняя длина строк: " + stringArray.getAverageLength());  
     }  
 }  
